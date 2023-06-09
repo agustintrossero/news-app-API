@@ -1,5 +1,6 @@
 //import Container from '@mui/material/Container';
-import {Container, Typography} from '@mui/material'
+import {Container, Typography, Grid} from '@mui/material'
+import Formulario from './components/Formulario'
 
 function App() {
 
@@ -10,6 +11,17 @@ function App() {
       <header>
         <Typography  align='center' marginY={5} component="h1" variant="h3">Good News App</Typography>
       </header>
+
+        <Grid
+          container
+          direction='row'
+          justifyContent='center'
+          alignItems='center'
+        >
+          <Grid item md={6} xs={12} lg={4}>
+            <Formulario/>
+          </Grid>
+        </Grid>
     </Container>
   </>
   )
