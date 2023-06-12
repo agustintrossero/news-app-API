@@ -5,7 +5,7 @@ import Noticia from './Noticia';
 
 export default function ListadoNoticias() {
     const {noticias} = useNoticias()
-    console.log(noticias)
+    //console.log(noticias)
 
   return (
     <>
@@ -17,7 +17,7 @@ export default function ListadoNoticias() {
     >
         Ultimas Noticias
     </Typography>
-    <Grid>
+    <Grid container spacing={2}>
         {noticias.map(noticia =>(
             <Noticia
                 key={noticia.url}
