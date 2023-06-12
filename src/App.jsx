@@ -5,9 +5,7 @@ import { NoticiasProvider } from './context/NoticiasProvider'
 
 function App() {
 
-
   return (
-  <>
     <NoticiasProvider>
       <Container>
         <header>
@@ -26,7 +24,6 @@ function App() {
           </Grid>
       </Container>
     </NoticiasProvider>
-  </>
   )
 }
 

@@ -1,20 +1,25 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, createContext } from "react";
+const NoticiasContext = createContext();
 
-const NoticiasContext = createContext()
-const NoticiasProvider = ({children}) =>{
-    return(
-        <NoticiasContext.Provider
-            value={{
-                
-            }}
-        >
-            {children}
-        </NoticiasContext.Provider>
-    )
+function NoticiasProvider({ children }) {
+  const [categoria, setCategoria] = useState("general");
+
+  const handleChangeCategoria = (e) => {
+    setCategoria(e.target.value);
+    console.log(e.target.value);
+  };
+  return (
+    <NoticiasContext.Provider
+      value={{
+        categoria,
+        handleChangeCategoria,
+      }}
+    >
+      {children}
+    </NoticiasContext.Provider>
+  );
 }
 
-export {
-    NoticiasProvider
-}
+export { NoticiasProvider };
 
-export default NoticiasContext
+export default NoticiasContext;
