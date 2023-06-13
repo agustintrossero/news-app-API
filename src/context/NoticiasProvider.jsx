@@ -15,21 +15,41 @@ function NoticiasProvider({ children }) {
         const {data} = await axios(url)
         setNoticias(data.articles)
         setTotalNoticias(data.totalResults)
+        setPagina(1)
     }
     consultarAPI()
   },[categoria])
-
+  
+  useEffect(()=>{
+    const consultarAPI = async()=>{
+        const url = `https://newsapi.org/v2/top-headlines?country=us&page=${pagina}&category=${categoria}&apiKey=${import.meta.env.VITE_API_KEY}`
+        const {data} = await axios(url)
+        setNoticias(data.articles)
+        setTotalNoticias(data.totalResults)
+    } 
+    consultarAPI()
+  },[pagina])
 
   const handleChangeCategoria = (e) => {
     setCategoria(e.target.value);
   };
+
+  const handleChangePagina = (e, valor) => {
+    //console.log(e.target.textContent );
+    console.log(valor);
+    setPagina(valor);
+  }
+
+
   return (
     <NoticiasContext.Provider
       value={{
         categoria,
         handleChangeCategoria,
         noticias,
-        totalNoticias
+        totalNoticias,
+        handleChangePagina,
+        pagina
       }}
     >
       {children}

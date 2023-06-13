@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
 export default function Noticia({noticia}) {
-    console.log(noticia);
+    //console.log(noticia);
     const {urlToImage, url, title, description, source} = noticia
 
   return (
